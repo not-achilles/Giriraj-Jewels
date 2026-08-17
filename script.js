@@ -111,12 +111,6 @@ const philosophies = {
         tag: "Design Vision / Diamond",
         desc: "Modern fire meets timeless lineage. We believe diamonds should capture light and emotion in equal measure. Our upcoming diamond creations focus on fluid, minimalist geometries that sit flush against the skin, engineered with hand-selected VS-VVS brilliant-cut diamonds that represent modern elegance.",
         img: "images/diamond_jewel.jpg"
-    },
-    silver: {
-        title: "The Silver Philosophy",
-        tag: "Design Vision / Silver",
-        desc: "Contemporary grace for daily rituals. Our sterling silver philosophy is rooted in minimalist, sculptural lines. Designed for the modern dresser, these stacking cuffs, architectural bands, and minimal drops represent everyday elegance, carrying our legacy of purity in a lighter, everyday format.",
-        img: "images/silver_jewel.jpg"
     }
 };
 
@@ -235,15 +229,15 @@ function initBookingForm() {
         
         // Show local success state
         msgDiv.className = "booking-message success";
-        msgDiv.innerHTML = `<i class="fas fa-circle-check"></i> Thank you, <strong>${name}</strong>. You have registered for the launch of Giriraj Jewels. We will notify you at <strong>${phone}</strong> with exclusive launch event updates and preview dates.`;
+        msgDiv.innerHTML = `<i class="fas fa-circle-check"></i> Thank you, <strong>${name}</strong>. You have registered for collection updates. We will notify you at <strong>${phone}</strong> when new collections and design releases arrive.`;
         
         // Form redirect to WhatsApp for dynamic client registry
         setTimeout(() => {
             const waRegistryText = encodeURIComponent(
-                `Hello Giriraj Jewels, I would like to register for your grand launch updates:\n\n` +
+                `Hello Giriraj Jewels, I would like to request updates on your recent collections:\n\n` +
                 `- Name: ${name}\n` +
                 `- Phone: ${phone}\n` +
-                `- Interest: ${interest}\n` +
+                `- Preferred Category: ${interest}\n` +
                 `- Enquiries: ${notes || 'None'}`
             );
             

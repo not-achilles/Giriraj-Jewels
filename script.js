@@ -241,7 +241,7 @@ function initBookingForm() {
                 `- Enquiries: ${notes || 'None'}`
             );
             
-            window.open(`https://wa.me/919999999999?text=${waRegistryText}`, "_blank");
+            window.open(`https://wa.me/919981239994?text=${waRegistryText}`, "_blank");
             form.reset();
         }, 1500);
     });

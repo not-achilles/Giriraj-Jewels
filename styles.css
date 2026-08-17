@@ -1231,6 +1231,56 @@ h1, h2, h3, h4, h5, h6 {
     filter: grayscale(0);
 }
 
+.map-floating-card {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--accent-gold);
+    padding: 1.5rem 2rem;
+    z-index: 5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    pointer-events: auto;
+    text-align: left;
+    max-width: 300px;
+}
+
+.map-floating-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.map-floating-card p {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.map-floating-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: var(--accent-gold-dark);
+    transition: var(--transition-fast);
+}
+
+.map-floating-card a:hover {
+    color: var(--text-primary);
+}
+
 /* ==========================================
    FOOTER
    ========================================== */
@@ -1630,6 +1680,14 @@ h1, h2, h3, h4, h5, h6 {
     }
     .footer-brand {
         grid-column: span 1;
+    }
+
+    .map-floating-card {
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+        padding: 1.2rem;
     }
 }
 

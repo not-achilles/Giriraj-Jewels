@@ -110,13 +110,7 @@ const philosophies = {
         title: "The Diamond Philosophy",
         tag: "Design Vision / Diamond",
         desc: "Modern fire meets timeless lineage. We believe diamonds should capture light and emotion in equal measure. Our upcoming diamond creations focus on fluid, minimalist geometries that sit flush against the skin, engineered with hand-selected VS-VVS brilliant-cut diamonds that represent modern elegance.",
-        img: "images/diamond_jewel.jpg"
-    },
-    silver: {
-        title: "The Silver Philosophy",
-        tag: "Design Vision / Silver",
-        desc: "Contemporary grace for daily rituals. Our sterling silver philosophy is rooted in minimalist, sculptural lines. Designed for the modern dresser, these stacking cuffs, architectural bands, and minimal drops represent everyday elegance, carrying our legacy of purity in a lighter, everyday format.",
-        img: "images/silver_jewel.png"
+        img: "images/diamond_jewel.png"
     }
 };
 

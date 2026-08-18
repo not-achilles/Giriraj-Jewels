@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollReveal();
     initBookingForm();
     initStoryCarousel();
+    initBackgroundMusic();
 });
 
 /* ==========================================
@@ -289,5 +290,84 @@ function initStoryCarousel() {
         dot.addEventListener("click", () => {
             showSlide(idx);
         });
+    });
+}
+
+/* ==========================================
+   8. Background Music Controller
+   ========================================== */
+function initBackgroundMusic() {
+    const audio = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("music-toggle");
+    
+    if (!audio || !toggleBtn) return;
+    
+    let isMutedByUser = false;
+    let isPlaying = false;
+    
+    // Function to update icon state
+    function updateIconState() {
+        const icon = toggleBtn.querySelector("i");
+        if (isPlaying) {
+            icon.className = "fas fa-volume-high";
+            toggleBtn.classList.add("playing");
+            toggleBtn.setAttribute("aria-label", "Mute background music");
+        } else {
+            icon.className = "fas fa-volume-xmark";
+            toggleBtn.classList.remove("playing");
+            toggleBtn.setAttribute("aria-label", "Play background music");
+        }
+    }
+    
+    // Attempt play function
+    function playAudio() {
+        audio.play().then(() => {
+            isPlaying = true;
+            updateIconState();
+        }).catch(err => {
+            console.log("Autoplay blocked by browser. Awaiting user interaction.", err);
+        });
+    }
+    
+    // Try to autoplay on user gestures (safely bypasses browser block)
+    const gestureEvents = ["click", "touchstart", "scroll"];
+    function playOnGesture() {
+        if (!isMutedByUser && !isPlaying) {
+            playAudio();
+        }
+        gestureEvents.forEach(event => {
+            document.removeEventListener(event, playOnGesture);
+        });
+    }
+    gestureEvents.forEach(event => {
+        document.addEventListener(event, playOnGesture);
+    });
+    
+    // Button toggle logic
+    toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // Avoid triggering gesture logic again
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            isMutedByUser = true;
+        } else {
+            isMutedByUser = false;
+            playAudio();
+        }
+        updateIconState();
+    });
+    
+    // Tab visibility handling (pause on tab switch/minimize, resume on return)
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            if (isPlaying) {
+                audio.pause();
+            }
+        } else {
+            // Resume only if it was playing and not explicitly muted by user
+            if (!isMutedByUser) {
+                playAudio();
+            }
+        }
     });
 }

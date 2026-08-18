@@ -1834,3 +1834,76 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.9rem;
     }
 }
+
+/* ==========================================
+   BACKGROUND MUSIC FLOATING TOGGLE
+   ========================================== */
+.music-toggle-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-gold);
+    color: var(--accent-gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.music-toggle-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent-gold);
+    color: var(--text-primary);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.music-toggle-btn:hover i {
+    transform: scale(1.05);
+}
+
+.music-toggle-btn:active {
+    transform: scale(0.95) translateY(0);
+}
+
+/* Pulse animation when playing */
+.music-toggle-btn.playing {
+    border-color: var(--accent-gold-dark);
+    animation: musicPulse 2s infinite;
+}
+
+@keyframes musicPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+    }
+}
+
+@media (max-width: 767px) {
+    .music-toggle-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 42px;
+        height: 42px;
+    }
+    .music-toggle-btn i {
+        font-size: 0.95rem;
+    }
+}
